@@ -19,4 +19,16 @@ you should add Ruby to your toolbox.
 :image_url => '/images/ruby.jpg',
 :price => 49.50)
 
+Product.create(:title => 'O Guia do Mochileiro das Galaxias',
+  :description =>
+  %{<p>
+Seu guia de sobrevivencia no universo, nao saia da terra
+sem ele.
+
+</p>},
+    :image_url => '/images/guia.jpg',
+    :price => 80.00)
+
+
+
 #....
