@@ -1,5 +1,5 @@
 class Cart < ActiveRecord::Base
 
-	has_many :line_itens, :dependent => :destroy
+	has_many :line_items
 
 end
