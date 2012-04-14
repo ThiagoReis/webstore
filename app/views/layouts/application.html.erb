@@ -17,13 +17,14 @@
 		<%= @page_title || "   Simple Commerce" %>
 	</div>
 <div id="columns">
-	<div id="side">
-		<div id="cart">
-			<%= render @cart %>
-		</div>
+	<% if @cart %>
+	<%= hidden_div_if(@cart.line_items.empty?, :id => "cart") do %>
+		<%= render @cart %>
+	   <% end %>
+	<% end %>
 
 		
-		
+		<%= link_to 'Home', store_path %><br/>
 		<a href="http://www...">FAQ</a><br />
 		<a href="http://www...">Novidades</a><br />
 		<a href="http://www...">Contato</a><br />
