@@ -172,7 +172,7 @@ side a {
 /* Styles for the cart in the sidebar */
 #cart, #cart table {
   font-size: smaller;
-  color: white;
+  color: black;
 }
 
 #cart table{

@@ -29,4 +29,16 @@ class Product < ActiveRecord::Base
     :message => 'A Imagem precisar ter um dos seguintes formatos: GIF, JPG ou PNG.'
   }
   
+
+private 
+def ensure_not_referenced_by_any_line_item
+  if line_items.empty?
+    return true
+  else
+    errors.add(:base, 'Line Items present')
+    return false
+  end
+end 
+
+
 end
