@@ -82,7 +82,7 @@ end
     session[:cart_id] = nil
 
     respond_to do |format|
-      format.html { redirect_to(store_url, :notice => 'Your cart is currently empty') }
+      format.html { redirect_to store_path }
       format.xml {head :ok}
       format.json { head :no_content }
     end
