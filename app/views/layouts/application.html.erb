@@ -1,45 +1,36 @@
+<!-- START:head -->
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SCommerce</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= stylesheet_link_tag  "depot", :media => "all" %>
+  <title>Pragprog Books Online Store</title>
+  <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-
-
-
-
+  <%= csrf_meta_tag %>
 </head>
-<body id="store">
-	<div id="banner">
-		<%= image_tag("logo.png") %><br />
-		<%= @page_title || "   Simple Commerce" %>
-	</div>
-<div id="columns">
-	
-	<% if @cart %>
-<%= hidden_div_if(@cart.line_items.empty?, :id => "cart") do %>
-<%= render @cart %>
-<% end %>
-<% end %>
+<!-- END:head -->
+<body class="<%= controller.controller_name %>">
+  <div id="banner">
+    <%= image_tag("logo.png") %>
+    <%= @page_title || "Pragmatic Bookshelf" %>
+  </div>
+  <div id="columns">
+    <div id="side">
+<!-- START_HIGHLIGHT -->
+      <div id="cart">
+        <%= render @cart %>
+      </div>
 
-
-		
-		<%= link_to 'Home', store_path %><br/>
-		<a href="http://www...">FAQ</a><br />
-		<a href="http://www...">Novidades</a><br />
-		<a href="http://www...">Contato</a><br />
-	</div>
-
-	<div id="main">
-		<%= yield %>
-	</div>
-
-
-</div>
-
-
-
+<!-- END_HIGHLIGHT -->
+      <ul>
+        <li><a href="http://www....">Home</a></li>
+        <li><a href="http://www..../faq">Questions</a></li>
+        <li><a href="http://www..../news">News</a></li>
+        <li><a href="http://www..../contact">Contact</a></li>
+      </ul>
+    </div>
+    <div id="main">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>

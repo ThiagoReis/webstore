@@ -1,7 +1,8 @@
 <%= form_for(@product) do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <h2><%= pluralize(@product.errors.count, "error") %>
+      prohibited this product from being saved:</h2>
 
       <ul>
       <% @product.errors.full_messages.each do |msg| %>
@@ -12,22 +13,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title, "Título" %><br />
+    <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :description, "Descrição" %><br />
-    <%= f.text_area :description, :rows => 6 %>
+    <%= f.label :description %><br />
+<!-- START_HIGHLIGHT -->
+    <%= f.text_area :description, rows: 6 %>
+<!-- END_HIGHLIGHT -->
   </div>
   <div class="field">
-    <%= f.label :image_url, "Imagem" %><br />
+    <%= f.label :image_url %><br />
     <%= f.text_field :image_url %>
   </div>
   <div class="field">
-    <%= f.label :price, "Preço" %><br />
+    <%= f.label :price %><br />
     <%= f.text_field :price %>
   </div>
   <div class="actions">
-    <%= f.submit "Salvar" %>
+    <%= f.submit %>
   </div>
 <% end %>

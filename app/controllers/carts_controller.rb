@@ -1,3 +1,11 @@
+#---
+# Excerpted from "Agile Web Development with Rails",
+# published by The Pragmatic Bookshelf.
+# Copyrights apply to this code. It may not be used to create training material, 
+# courses, books, articles, and the like. Contact us if you are in doubt.
+# We make no guarantees that this code is fit for any purpose. 
+# Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
+#---
 class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
@@ -16,15 +24,15 @@ class CartsController < ApplicationController
     begin
       @cart = Cart.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-      logger.error "Attempt to acces invalid cart #{params[:id]}"
-      redirect_to store_url, :notice => 'invalid cart'
+      logger.error "Attempt to access invalid cart #{params[:id]}"
+      redirect_to store_url, notice: 'Invalid cart'
     else
       respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @cart }
+      end
     end
   end
-end
 
   # GET /carts/new
   # GET /carts/new.json
@@ -82,8 +90,8 @@ end
     session[:cart_id] = nil
 
     respond_to do |format|
-      format.html { redirect_to store_path }
-      format.xml {head :ok}
+      format.html { redirect_to store_url,
+        notice: 'Your cart is currently empty' }
       format.json { head :no_content }
     end
   end

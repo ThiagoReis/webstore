@@ -1,4 +1,4 @@
-<div class="cart_title">Carrinho de Compras</div>
+<div class="cart_title">Your Cart</div>
 <table>
 <!-- START_HIGHLIGHT -->
   <%= render(cart.line_items) %>
@@ -14,6 +14,6 @@
 </table>
 
 <!-- START_HIGHLIGHT -->
-<%= button_to 'Limpar Carrinho', cart, method: :delete,
+<%= button_to 'Empty cart', cart, method: :delete,
 #END_HIGHLIGHT
-    confirm: 'Tem certeza?' %>
+    confirm: 'Are you sure?' %>
